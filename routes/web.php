@@ -27,7 +27,7 @@ Route::get('/products/{slug}', 'Frontend\ProductsController@show')->name('produc
 route::group(['prefix' => 'admin'], function(){
     Route::get('/', 'Backend\PagesController@index')->name('admin.index');
 
-                // Product Functions
+                // Product Routes
     route::group(['prefix' => 'products'], function(){
 
     Route::get('/', 'Backend\ProductsController@index')->name('admin.products');
@@ -40,6 +40,22 @@ route::group(['prefix' => 'admin'], function(){
     Route::post('/product/delete/{id}', 'Backend\ProductsController@delete')->name('admin.product.delete');
 
     });
+
+
+                 // Category Routes
+    route::group(['prefix' => 'categories'], function(){
+
+    Route::get('/', 'Backend\CategoriesController@index')->name('admin.categories');
+    Route::get('/create', 'Backend\CategoriesController@create')->name('admin.category.create');
+    Route::get('/edit/{id}', 'Backend\CategoriesController@edit')->name('admin.category.edit');
+
+
+    Route::post('/store', 'Backend\CategoriesController@store')->name('admin.category.store');
+    Route::post('/category/update/{id}', 'Backend\CategoriesController@update')->name('admin.category.update');
+    Route::post('/category/delete/{id}', 'Backend\CategoriesController@delete')->name('admin.category.delete');
+
+    });
+
 
 
 
