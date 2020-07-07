@@ -74,7 +74,7 @@ class ProductsController extends Controller
         // }
 
 
-        if(count($request->product_image)>0){
+        if(($request->product_image)>0){
             foreach($request->product_image as $image){
 
             $img = time(). '.'. $image->getClientOriginalExtension();
@@ -132,6 +132,7 @@ class ProductsController extends Controller
 
         //     }
         // }
+         session()->flash('success', 'Product has been Added !');
 
          return redirect()->route('backend.products');
 
