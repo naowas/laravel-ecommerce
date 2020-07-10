@@ -30,16 +30,16 @@
             <input type="number" class="form-control" name="price" value="{{$product->price}}">
           </div> --}}
 
-            <div class="form-group">
-            <label for="parent"></label>
-            <select class="form-control" name="parent_id" id="parent">
-              <option value="">Select A primary Category</option>
-                @foreach ($main_categories as $options)
-                        <option value="{{ $options -> id}}" {{ $options -> id == $category -> parent_id ? 'selected': ''}}>{{ $options->name}}</option>
-                    @endforeach
-              
-            </select>
-          </div>
+           <div class="form-group">
+              <label for="exampleInputPassword1">Parent Category (optional)</label>
+              <select class="form-control" name="parent_id">
+                <option value="">Please select a Primary category</option>
+                @foreach ($main_categories as $cat)
+                  <option value="{{ $cat->id }}" {{ $cat->id == $category->parent_id ? 'selected' : '' }}>{{ $cat->name }}</option>
+                @endforeach
+              </select>
+
+            </div>
 
           <div class="form-group">
             <label for="Product_image">Category Iamge</label>

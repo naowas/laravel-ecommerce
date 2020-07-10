@@ -6,7 +6,6 @@
   <div class="row">
     <div class="col-md-3">
 
-      @include('frontend.partials.product-sidebar')
 
 
     </div>
@@ -14,9 +13,8 @@
     <div class="col-md-9">
 
       <div class="widget">
-        <h3>Featured Products</h3>
+        <h3>{{ $product-> title}}</h3>
 
-  @include('frontend.pages.product.partials.show_all_products')
 
       </div>
 

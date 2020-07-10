@@ -119,8 +119,47 @@ public function update(Request $request, $id){
 
       session()->flush('success', 'New Category has been Updated');
       return redirect()->route('admin.categories');
-
-
+      
    }
+
+   
+    public function delete($id)
+    {
+        $category = Category::find($id);
+        if(!is_null($category)){
+
+        if($category -> parent_id == NULL){
+
+            $sub_category = Category::orderBy('name', 'desc')-> where('parent_id', $category->id)->get();
+            foreach($sub_category as $sub){
+
+               if(File::exists('images/categories/'. $category -> image))
+          {
+            File::delete('images/categories/'. $category -> image);
+          }
+
+          $sub -> delete();
+
+            }
+
+
+        }
+
+
+          if(File::exists('images/categories/'. $category -> image))
+          {
+            File::delete('images/categories/'. $category -> image);
+          }
+
+            $category -> delete();
+
+
+         
+        }
+
+        session()->flash('success', 'category has been deleted !');
+
+        return back();
+    }
    
 }

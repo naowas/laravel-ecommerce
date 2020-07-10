@@ -1,25 +1,34 @@
 /* 
 Override Css
  */
-.bg-light{
+.bg-light {
     background-color: skyblue !important;
 }
 
-
-.margin-top-20{
-
+.margin-top-20 {
     margin-top: 20px;
-
 }
 
-.feature-img{
+.feature-img {
     max-height: 200px;
 }
 
-.footer-bottom{
-
+.footer-bottom {
     padding: 15px;
-    margin-top: 15px ;
+    margin-top: 15px;
     background: skyblue;
+}
 
+.product-item {
+    background: steelblue;
+}
+
+.child-rows {
+    padding-left: 9px;
+    border-left: 1px soild #dfdfdf;
+    background: #fff;
+}
+
+.child-rows a.list-group-item {
+    border-left: 0px !important;
 }

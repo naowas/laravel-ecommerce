@@ -24,15 +24,16 @@
             <textarea name="description" id="" cols="30" rows="10" class="form-control"></textarea>
           </div>
 
-          <div class="form-group">
-            <label for="parent"></label>
-            <select class="form-control" name="parent_id" id="parent">
+           <div class="form-group">
+              <label for="exampleInputPassword1">Parent Category (optional)</label>
+              <select class="form-control" name="parent_id">
+                <option value="">Please select a Parent category</option>
                 @foreach ($main_categories as $category)
-                        <option value="{{ $category->id}}">{{ $category->name}}</option>
-                    @endforeach
-              
-            </select>
-          </div>
+                  <option value="{{ $category->id }}">{{ $category->name }}</option>
+                @endforeach
+              </select>
+
+            </div>
 
 
            <div class="form-group">

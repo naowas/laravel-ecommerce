@@ -57,7 +57,7 @@
                     </div>
                     <div class="modal-body">
 
-                      <form action="{{ route('admin.product.delete', $category->id) }}" method="post">
+                      <form action="{{ route('admin.category.delete', $category->id) }}" method="post">
                         {{@csrf_field()}}
 
                         <button type="submit" class="btn btn-danger">Premananet Delete</button>

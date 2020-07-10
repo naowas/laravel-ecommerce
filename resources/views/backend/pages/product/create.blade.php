@@ -35,35 +35,27 @@
             <input type="number" class="form-control" name="quantity" placeholder="Quantity">
           </div>
 
-          <div class="form-group">
-            <label for="Product_image">Product Iamge</label>
-            <div class="row">
-              <div class="col-md-4">
-                <input type="file" class="form-control" name="product_image[]" >
+            <div class="form-group">
+              <label for="product_image">Product Image</label>
 
-              </div>
-              <div class="col-md-4">
-                <input type="file" class="form-control" name="product_image[]" >
-
-              </div>
-              <div class="col-md-4">
-                <input type="file" class="form-control" name="product_image[]" >
-
-              </div>
-              <div class="col-md-4">
-                <input type="file" class="form-control" name="product_image[]" >
-
-              </div>
-              <div class="col-md-4">
-                <input type="file" class="form-control" name="product_image[]" >
-
-              </div>
-              <div class="col-md-4">
-                <input type="file" class="form-control" name="product_image[]" >
-
+              <div class="row">
+                <div class="col-md-4">
+                  <input type="file" class="form-control" name="product_image[]" id="product_image" >
+                </div>
+                <div class="col-md-4">
+                  <input type="file" class="form-control" name="product_image[]" id="product_image" >
+                </div>
+                <div class="col-md-4">
+                  <input type="file" class="form-control" name="product_image[]" id="product_image" >
+                </div>
+                <div class="col-md-4">
+                  <input type="file" class="form-control" name="product_image[]" id="product_image" >
+                </div>
+                <div class="col-md-4">
+                  <input type="file" class="form-control" name="product_image[]" id="product_image" >
+                </div>
               </div>
             </div>
-          </div>
 
           <button type="submit" class="btn btn-primary">Add Product</button>
         </form>
