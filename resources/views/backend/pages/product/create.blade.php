@@ -35,10 +35,39 @@
             <input type="number" class="form-control" name="quantity" placeholder="Quantity">
           </div>
 
+          <div class="form-group">
+            <label for="category">Select category</label>
+            <select class="form-control" name="category_id" id="category">
+              <option value="">Select category for product</option>
+              @foreach (App\Models\Category::orderBy('name', 'asc')-> where('parent_id', NULL)->get() as $parent)
+                <option value="{{ $parent-> id}}">{{$parent -> name}}</option>
+
+                  @foreach (App\Models\Category::orderBy('name', 'asc')-> where('parent_id', $parent->id)->get() as $child)
+                   <option value="{{ $child-> id}}">------->{{$child -> name}}</option>
+
+               @endforeach  
+
+              @endforeach
+            </select>
+          </div>
+
+            <div class="form-group">
+            <label for="brand">Select brand</label>
+            <select class="form-control" name="brand_id" id="brand">
+              <option value="">Select brand for product</option>
+              @foreach (App\Models\Brand::orderBy('name', 'asc')->get() as $brand)
+                <option value="{{ $brand-> id}}">{{$brand -> name}}</option>
+              @endforeach
+            </select>
+          </div>
+
             <div class="form-group">
               <label for="product_image">Product Image</label>
 
               <div class="row">
+                <div class="col-md-4">
+                  <input type="file" class="form-control" name="product_image[]" id="product_image" >
+                </div>
                 <div class="col-md-4">
                   <input type="file" class="form-control" name="product_image[]" id="product_image" >
                 </div>

@@ -35,6 +35,33 @@
             <input type="number" class="form-control" name="quantity" value="{{$product->quantity}}">
           </div>
 
+
+                   <div class="form-group">
+            <label for="category">Select category</label>
+            <select class="form-control" name="category_id" id="category">
+              <option value="">Select category for product</option>
+              @foreach (App\Models\Category::orderBy('name', 'asc')-> where('parent_id', NULL)->get() as $parent)
+                <option value="{{ $parent-> id}}" {{ $parent->id == $product->category->id ? 'selected' : ''}} >{{$parent -> name}}</option>
+
+                  @foreach (App\Models\Category::orderBy('name', 'asc')-> where('parent_id', $parent->id)->get() as $child)
+                   <option value="{{ $child-> id}}" {{ $child->id == $product->category->id ? 'selected' : ''}}>------->{{$child -> name}}</option>
+
+               @endforeach  
+
+              @endforeach
+            </select>
+          </div>
+
+            <div class="form-group">
+            <label for="brand">Select brand</label>
+            <select class="form-control" name="brand_id" id="brand">
+              <option value="">Select brand for product</option>
+              @foreach (App\Models\Brand::orderBy('name', 'asc')->get() as $brnd)
+                <option value="{{ $brnd-> id}}" {{ $brnd->id == $product->brand->id ? 'selected' : ''}} >{{$brnd -> name}}</option>
+              @endforeach
+            </select>
+          </div>
+
           <div class="form-group">
             <label for="Product_image">Product Iamge</label>
             <div class="row">

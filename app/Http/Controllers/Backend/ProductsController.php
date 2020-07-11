@@ -35,10 +35,12 @@ class ProductsController extends Controller
   {
 
     $request->validate([
-      'title'         => 'required|max:150',
-      'description'     => 'required',
-      'price'             => 'required|numeric',
-      'quantity'             => 'required|numeric',
+            'title' => 'required|max:255',
+            'description' => 'required',
+            'price' => 'required|numeric',
+            'quantity' => 'required|numeric',
+            'category_id' => 'required',
+            'brand_id' => 'required',
     
     ]);
 
@@ -52,8 +54,8 @@ class ProductsController extends Controller
     $product->quantity = $request->quantity;
 
     $product->slug = Str::slug($request->title);
-    $product->category_id = 1 ;
-    $product->brand_id = 1 ;
+    $product->category_id = $request->category_id;
+    $product->brand_id = $request->brand_id;
     $product->admin_id = 1;
     $product->save();
 
@@ -85,6 +87,11 @@ class ProductsController extends Controller
             'description' => 'required',
             'price' => 'required|numeric',
             'quantity' => 'required|numeric',
+            'category_id' => 'required',
+            'brand_id' => 'required',
+
+
+                        
 
 
         ]);
@@ -94,6 +101,8 @@ class ProductsController extends Controller
          $product -> description = $request -> description;
          $product -> price = $request -> price;
          $product -> quantity = $request -> quantity;
+          $product->category_id = $request->category_id;
+    $product->brand_id = $request->brand_id;      
 
          $product-> save();
 
@@ -111,9 +120,10 @@ class ProductsController extends Controller
 
         //     }
         // }
-         session()->flash('success', 'Product has been Added !');
+         session()->flash('success', 'Product has been updated !');
+         
+         return redirect()->route('admin.products');
 
-         return redirect()->route('backend.products');
 
 
 

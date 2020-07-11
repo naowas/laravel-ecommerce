@@ -31,13 +31,18 @@
           </a>
         </div>
 
+        <div class="mt-3">
+          Category <span class="badge badge-info"> {{$product -> category-> name}} </span>
+          Brand <span class="badge badge-info"> {{$product -> brand-> name}} </span>
+
+        </div>
         
 
       </div>
 
       <div class="col-md-8">
         <div class="widget">
-          <h3> {{ $product->title }}</h3>
+          <h3> {{ $product->title }} </h3>
           <h3> {{ $product->price }} Taka
             <span class="badge badge-primary">
               {{ $product->quantity  < 1 ? 'No Item is Available' : $product->quantity.' item in stock' }}

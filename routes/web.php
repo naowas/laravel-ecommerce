@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+use Illuminate\Support\Facades\Auth;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,12 +19,21 @@ Route::get('/', 'Frontend\PagesController@index')->name('index');
 Route::get('/contact', 'Frontend\PagesController@contact')->name('contact');
 
 
-                // Product Routes
-Route::get('/products', 'Frontend\ProductsController@index')->name('products');
-Route::get('/product/{slug}', 'Frontend\ProductsController@show')->name('products.show');
+                //  Routes Frontend
+route::group(['prefix' => 'products'], function(){
+
+Route::get('/', 'Frontend\ProductsController@index')->name('products');
+Route::get('/{slug}', 'Frontend\ProductsController@show')->name('products.show');
 Route::get('/search', 'Frontend\PagesController@search')->name('search');
 
 
+                // Category Routes Frontend
+
+Route::get('/categories', 'Frontend\CategoriesController@index')->name('categories.index');
+Route::get('/category/{id}', 'Frontend\CategoriesController@show')->name('categories.show');
+
+
+ });
 
 
                 // Admin Routes
@@ -58,7 +69,25 @@ route::group(['prefix' => 'admin'], function(){
 
     });
 
+                     // Brands Routes
+    route::group(['prefix' => 'brands'], function(){
+
+    Route::get('/', 'Backend\BrandsController@index')->name('admin.brands');
+    Route::get('/create', 'Backend\BrandsController@create')->name('admin.brand.create');
+    Route::get('/edit/{id}', 'Backend\BrandsController@edit')->name('admin.brand.edit');
+
+
+    Route::post('/store', 'Backend\BrandsController@store')->name('admin.brand.store');
+    Route::post('/brand/update/{id}', 'Backend\BrandsController@update')->name('admin.brand.update');
+    Route::post('/brand/delete/{id}', 'Backend\BrandsController@delete')->name('admin.brand.delete');
+
+    });
+
 
 
 
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
