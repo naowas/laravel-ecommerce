@@ -60,7 +60,7 @@
               </div>
             </li>
 
-                   <li class="nav-item">
+              <li class="nav-item">
               <a class="nav-link" data-toggle="collapse" href="#brand" aria-expanded="false" aria-controls="auth">
                 <i class="menu-icon typcn typcn-document-add"></i>
                 <span class="menu-title">Manage Brands</span>
@@ -73,6 +73,45 @@
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="{{route('admin.brands')}}"> Manage Brands </a>
+                  </li>
+
+                </ul>
+              </div>
+            </li>
+
+                <li class="nav-item">
+              <a class="nav-link" data-toggle="collapse" href="#division" aria-expanded="false" aria-controls="auth">
+                <i class="menu-icon typcn typcn-document-add"></i>
+                <span class="menu-title">Manage Divisions</span>
+                <i class="menu-arrow"></i>
+              </a>
+              <div class="collapse" id="division">
+                <ul class="nav flex-column sub-menu">
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{route('admin.division.create')}}"> Add Division </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{ route('admin.divisions') }}"> Manage Division </a>
+                  </li>
+
+                </ul>
+              </div>
+            </li>
+
+
+                   <li class="nav-item">
+              <a class="nav-link" data-toggle="collapse" href="#district" aria-expanded="false" aria-controls="auth">
+                <i class="menu-icon typcn typcn-document-add"></i>
+                <span class="menu-title">Manage Districts</span>
+                <i class="menu-arrow"></i>
+              </a>
+              <div class="collapse" id="district">
+                <ul class="nav flex-column sub-menu">
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{route('admin.district.create')}}"> Add District </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{route('admin.districts')}}"> Manage District </a>
                   </li>
 
                 </ul>
