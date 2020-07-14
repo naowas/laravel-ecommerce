@@ -111,10 +111,10 @@ class RegisterController extends Controller
       'status'  => 0,
     ]);
 
-   // $user->notify(new VerifyRegistration($user));
+   $user->notify(new VerifyRegistration($user));
 
     session()->flash('success', 'A confirmation email has sent to you.. Please check and confirm your email');
-    return redirect('/');;
+    return redirect('/');
 
 
   }

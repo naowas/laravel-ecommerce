@@ -17,6 +17,8 @@
 <div class="wrapper">
 
 @include('frontend.partials.nav')
+@include('frontend.partials.messages')
+
 
 @yield('content')
 

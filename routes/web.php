@@ -35,6 +35,10 @@ Route::get('/category/{id}', 'Frontend\CategoriesController@show')->name('catego
 
  });
 
+              // User Routes
+Route::get('/token/{token}', 'Frontend\VerificationController@verify')->name('user.verification');
+
+
 
                 // Admin Routes
 route::group(['prefix' => 'admin'], function(){
@@ -106,6 +110,8 @@ route::group(['prefix' => 'admin'], function(){
     Route::post('/district/edit/{id}', 'Backend\DistrictsController@update')->name('admin.district.update');
     Route::post('/district/delete/{id}', 'Backend\DistrictsController@delete')->name('admin.district.delete');
   });
+
+  
 
 
 });
