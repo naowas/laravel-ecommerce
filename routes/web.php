@@ -36,9 +36,18 @@ Route::get('/category/{id}', 'Frontend\CategoriesController@show')->name('catego
  });
 
               // User Routes
+route::group(['prefix' => 'user'], function(){
+
 Route::get('/token/{token}', 'Frontend\VerificationController@verify')->name('user.verification');
+Route::get('/dashboard', 'Frontend\UsersController@dashboard')->name('user.dashboard');
+Route::get('/profile', 'Frontend\UsersController@profile')->name('user.profile');
+
+Route::post('/profile/update', 'Frontend\UsersController@profileUpdate')->name('user.profile.update');
 
 
+
+
+});
 
                 // Admin Routes
 route::group(['prefix' => 'admin'], function(){

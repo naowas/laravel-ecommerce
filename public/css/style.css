@@ -17,6 +17,12 @@ Override Css
     padding: 15px;
     margin-top: 15px;
     background: skyblue;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    color: white;
+    text-align: center;
 }
 
 .product-item {
