@@ -6,5 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Brand extends Model
 {
-    //
+   public $filable=[
+
+        'name',
+        'description',
+        'image',
+
+
+
+    ];
 }

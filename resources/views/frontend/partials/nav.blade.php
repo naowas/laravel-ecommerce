@@ -22,7 +22,7 @@
   </li>
 
     <li class="nav-item">
-      
+
   <form class="form-inline my-2 my-lg-0" action="{{route('search')}}" method="GET">
   <div class="input-group mb-3">
     <input type="text" class="form-control" name="search" placeholder="Search Product" aria-label="Recipient's username" aria-describedby="basic-addon2">
@@ -36,7 +36,17 @@
 </ul>
 
 <ul class="navbar-nav ml-auto">
-     @guest
+    <li>
+        <a class="nav-link" href="{{ route('carts') }}">
+           <button class="btn btn-danger">
+                <span class="mt-1">Cart</span>
+            <span class="badge badge-warning">
+                {{ App\Models\Cart::totalItems()}}
+            </span>
+           </button>
+        </a>
+    </li>
+                              @guest
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
@@ -56,7 +66,7 @@
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                    <a class="dropdown-item" href="{{ route('user.dashboard') }}">
                                         Dashboard
-                                      
+
                                     </a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
