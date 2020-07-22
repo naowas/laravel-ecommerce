@@ -1,20 +1,3 @@
-{{-- @extends('frontend.layouts.master')
-
-@section('content')
-    <div class="container margin-top-20">
-        <h2>Confirm Items</h2>
-        <hr>
-        @foreach (App\Models\Cart::totalCarts() as $cart)
-    <p>{{ $cart-> product -> title }} -
-        <strong>{{ $cart-> product -> price }} Taka </strong>
-        {{ $cart-> product -> product_quantity }} Item
-    </p>
-        @endforeach
-       <p>
-           <a href=" {{ route('carts')}} "> Change Items</a>
-        </p>
-    </div>
-@endsection --}}
 @extends('frontend.layouts.master')
 
 @section('content')
