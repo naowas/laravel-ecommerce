@@ -10,6 +10,10 @@ use Illuminate\Support\Facades\File;
 
 class BrandsController extends Controller
 {
+     public function __construct(Type $var = null)
+    {
+        $this ->middleware('auth:admin');
+    }
    public function index()
    {
      $brands = Brand::orderBy('id', 'desc') -> get();
@@ -46,7 +50,7 @@ class BrandsController extends Controller
             $location = public_path('images/brands/' .$img);
             Image::make($image)->save($location);
             $brand -> image = $img;
-            
+
         }
       $brand ->save();
 
@@ -108,16 +112,16 @@ public function update(Request $request, $id){
             $brand -> image = $img;
 
 
-            
+
         }
       $brand ->save();
 
       session()->flush('success', 'New Brand has been Updated');
       return redirect()->route('admin.brands');
-      
+
    }
 
-   
+
     public function delete($id)
     {
         $brand = Brand::find($id);
@@ -132,12 +136,12 @@ public function update(Request $request, $id){
             $brand -> delete();
 
 
-         
+
         }
 
         session()->flash('success', 'brand has been deleted !');
 
         return back();
     }
-   
+
 }

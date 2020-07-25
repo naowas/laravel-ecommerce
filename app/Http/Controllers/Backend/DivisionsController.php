@@ -9,7 +9,11 @@ use App\Models\District;
 
 class DivisionsController extends Controller
 {
-  
+     public function __construct(Type $var = null)
+    {
+        $this ->middleware('auth:admin');
+    }
+
   public function index()
   {
     $divisions = Division::orderBy('priority', 'asc')->get();

@@ -14,6 +14,11 @@ use App\Models\Product;
 
 class PagesController extends Controller
 {
+    public function __construct(Type $var = null)
+    {
+        $this ->middleware('auth:admin');
+    }
+
      public function index(){
          return view('backend.pages.index');
      }

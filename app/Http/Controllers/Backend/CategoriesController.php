@@ -10,6 +10,10 @@ use Illuminate\Support\Facades\File;
 
 class CategoriesController extends Controller
 {
+     public function __construct(Type $var = null)
+    {
+        $this ->middleware('auth:admin');
+    }
    public function index()
    {
      $categories = Category::orderBy('id', 'desc') -> get();
@@ -48,7 +52,7 @@ class CategoriesController extends Controller
             $location = public_path('images/categories/' .$img);
             Image::make($image)->save($location);
             $category -> image = $img;
-            
+
         }
       $category ->save();
 
@@ -113,16 +117,16 @@ public function update(Request $request, $id){
             $category -> image = $img;
 
 
-            
+
         }
       $category ->save();
 
       session()->flush('success', 'New Category has been Updated');
       return redirect()->route('admin.categories');
-      
+
    }
 
-   
+
     public function delete($id)
     {
         $category = Category::find($id);
@@ -154,12 +158,12 @@ public function update(Request $request, $id){
             $category -> delete();
 
 
-         
+
         }
 
         session()->flash('success', 'category has been deleted !');
 
         return back();
     }
-   
+
 }

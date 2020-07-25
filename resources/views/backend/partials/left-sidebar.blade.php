@@ -19,7 +19,7 @@
                 <span class="menu-title">Dashboard</span>
               </a>
             </li>
- 
+
 
 
             <li class="nav-item">
@@ -116,6 +116,15 @@
 
                 </ul>
               </div>
+            </li>
+
+            <li class="nav-item">
+                <a href="" class="nav-link">
+                <form action="{{ route('admin.logout') }}" class="form-inline" method="POST">
+                    @csrf
+                    <input type="submit" value="Logout Now" class="btn btn-danger">
+                </form>
+                </a>
             </li>
 
           </ul>

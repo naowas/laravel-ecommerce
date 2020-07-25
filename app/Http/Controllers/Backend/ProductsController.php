@@ -13,6 +13,10 @@ use Intervention\Image\ImageManagerStatic as Image;
 
 class ProductsController extends Controller
 {
+     public function __construct(Type $var = null)
+    {
+        $this ->middleware('auth:admin');
+    }
     public function index(){
         $products = Product::orderBy('id', 'desc')->get();
 
@@ -41,7 +45,7 @@ class ProductsController extends Controller
             'quantity' => 'required|numeric',
             'category_id' => 'required',
             'brand_id' => 'required',
-    
+
     ]);
 
 
@@ -91,7 +95,7 @@ class ProductsController extends Controller
             'brand_id' => 'required',
 
 
-                        
+
 
 
         ]);
@@ -102,7 +106,7 @@ class ProductsController extends Controller
          $product -> price = $request -> price;
          $product -> quantity = $request -> quantity;
           $product->category_id = $request->category_id;
-    $product->brand_id = $request->brand_id;      
+    $product->brand_id = $request->brand_id;
 
          $product-> save();
 
@@ -121,7 +125,7 @@ class ProductsController extends Controller
         //     }
         // }
          session()->flash('success', 'Product has been updated !');
-         
+
          return redirect()->route('admin.products');
 
 
