@@ -18,6 +18,7 @@
               <th>#</th>
               <th>Product title</th>
               <th>Price</th>
+              <th>Image</th>
               <th>Quantity</th>
               {{-- <th>Description</th> --}}
               <th>Action</th>
@@ -28,6 +29,10 @@
               <td>#</td>
               <td>{{$product->title}}</td>
               <td>{{$product->price}}</td>
+              <td>     
+                <img src="{!! asset('images/products/'.$product->image) !!}" width="100">
+              </td>
+
               <td>{{$product->quantity}}</td>
               {{-- <td>{{$product->description}}</td> --}}
               <td>
