@@ -29,11 +29,11 @@ class DivisionsController extends Controller
   {
     $this->validate($request, [
       'name'  => 'required',
-      'priority'  => 'required',
+    //   'priority'  => 'required',
     ],
     [
       'name.required'  => 'Please provide a division name',
-      'priority.required'  => 'Please provide a division priority',
+    //   'priority.required'  => 'Please provide a division priority',
     ]);
 
     $division = new Division();

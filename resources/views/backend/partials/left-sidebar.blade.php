@@ -41,6 +41,13 @@
               </div>
             </li>
 
+            <li class="nav-item">
+              <a class="nav-link" href="{{route('admin.orders')}}">
+                <i class="menu-icon typcn typcn-document-text"></i>
+                <span class="menu-title">Manage Orders</span>
+              </a>
+            </li>
+
              <li class="nav-item">
               <a class="nav-link" data-toggle="collapse" href="#category" aria-expanded="false" aria-controls="auth">
                 <i class="menu-icon typcn typcn-document-add"></i>

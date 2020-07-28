@@ -13,21 +13,23 @@
       <div class="card-body">
         @include('backend.partials.messages')
 
-          <table class="table table-striped table-hover">
-            <tr>
+        <table class="table table-hover table-striped" id="dataTable">
+            <thead>
+                <tr>
               <th>#</th>
               <th>Brand Name</th>
               <th>Description</th>
               <th>Image</th>
               <th>Action</th>
             </tr>
+            </thead>
 
            @foreach ($brands as $brand)
             <tr>
               <td>#</td>
               <td>{{$brand->name}}</td>
               <td>{{$brand->description}}</td>
-              <td>     
+              <td>
                 <img src="{!! asset('images/brands/'.$brand->image) !!}" width="100">
               </td>
               <td>

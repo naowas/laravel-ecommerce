@@ -80,7 +80,7 @@
                 </div>
               </div>
 
-           <div class="form-group row">
+           {{-- <div class="form-group row">
                 <label for="district_id" class="col-md-4 col-form-label text-md-right">District</label>
                <div class="col-md-6">
                   <select class="form-control" name="district_id" id="district_id">
@@ -90,16 +90,16 @@
                     @endforeach
                   </select>
                 </div>
-              </div>
-              
-              {{-- <div class="form-group row">
+              </div> --}}
+
+              <div class="form-group row">
                 <label for="district_id" class="col-md-4 col-form-label text-md-right">District</label>
 
                 <div class="col-md-6">
                   <select class="form-control" name="district_id" id="district-area">
                   </select>
                 </div>
-              </div> --}}
+              </div>
 
               <div class="form-group row">
                 <label for="street_address" class="col-md-4 col-form-label text-md-right">Street Address</label>
@@ -152,8 +152,17 @@
   </div>
 @endsection
 
-{{-- @section('scripts')
-<script src="{{ asset('js/jquery-3.3.1.min.js') }}"></script>
+@section('scripts')
+
+{{-- <script>
+    $("#division_id").change(function()
+    {
+        var division = $("division_id").val();
+        alert(division);
+    });
+</script> --}}
+
+<script src="{{ asset('js/jquery-3.5.1.min.js') }}"></script>
   <script>
 
     $("#division_id").change(function(){
@@ -174,6 +183,7 @@
         });
     })
 
-    
+
   </script>
-@endsection --}}
+
+@endsection

@@ -63,19 +63,17 @@ route::group(['prefix' => 'admin'], function () {
     Route::get('/', 'Backend\PagesController@index')->name('admin.index');
 
     //admin Login routes
-Route::get('/login', 'Auth\Admin\LoginController@showLoginForm')->name('admin.login');
-Route::post('/login/submit', 'Auth\Admin\LoginController@login')->name('admin.login.submit');
-Route::post('/logout/submit', 'Auth\Admin\LoginController@logout')->name('admin.logout');
+    Route::get('/login', 'Auth\Admin\LoginController@showLoginForm')->name('admin.login');
+    Route::post('/login/submit', 'Auth\Admin\LoginController@login')->name('admin.login.submit');
+    Route::post('/logout/submit', 'Auth\Admin\LoginController@logout')->name('admin.logout');
 
 // PAssword forget email send
-Route::get('/password/reset', 'Auth\Admin\ForgotPasswordController@showLinkRequestForm')->name('admin.password.request');
-Route::post('/password/resetPost', 'Auth\Admin\ForgotPasswordController@sendResetLinkEmail')->name('admin.password.email');
-
+    Route::get('/password/reset', 'Auth\Admin\ForgotPasswordController@showLinkRequestForm')->name('admin.password.request');
+    Route::post('/password/resetPost', 'Auth\Admin\ForgotPasswordController@sendResetLinkEmail')->name('admin.password.email');
 
 // PAsswordreset
-Route::get('/password/reset/{token}', 'Auth\Admin\ResetPasswordController@showResetForm')->name('admin.password.reset');
-Route::post('/password/reset', 'Auth\Admin\ResetPasswordController@reset')->name('admin.password.reset.post');
-
+    Route::get('/password/reset/{token}', 'Auth\Admin\ResetPasswordController@showResetForm')->name('admin.password.reset');
+    Route::post('/password/reset', 'Auth\Admin\ResetPasswordController@reset')->name('admin.password.reset.post');
 
     // Product Routes
     route::group(['prefix' => 'products'], function () {
@@ -100,6 +98,22 @@ Route::post('/password/reset', 'Auth\Admin\ResetPasswordController@reset')->name
         Route::post('/store', 'Backend\CategoriesController@store')->name('admin.category.store');
         Route::post('/category/update/{id}', 'Backend\CategoriesController@update')->name('admin.category.update');
         Route::post('/category/delete/{id}', 'Backend\CategoriesController@delete')->name('admin.category.delete');
+
+    });
+    // Orders Routes
+    route::group(['prefix' => 'orders'], function () {
+
+        Route::get('/', 'Backend\OrdersController@index')->name('admin.orders');
+        Route::get('/view/{id}', 'Backend\OrdersController@show')->name('admin.order.show');
+
+        Route::post('/delete/{id}', 'Backend\OrdersController@delete')->name('admin.order.delete');
+
+        Route::post('/completed/{id}', 'Backend\OrdersController@completed')->name('admin.order.completed');
+
+        Route::post('/paid/{id}', 'Backend\OrdersController@paid')->name('admin.order.paid');
+        Route::post('/charge-update/{id}', 'Backend\OrdersController@chargeUpdate')->name('admin.order.charge');
+
+        Route::get('/invoice/{id}', 'Backend\OrdersController@generateInvoice')->name('admin.order.invoice');
 
     });
 
@@ -140,6 +154,19 @@ Route::post('/password/reset', 'Auth\Admin\ResetPasswordController@reset')->name
         Route::post('/district/delete/{id}', 'Backend\DistrictsController@delete')->name('admin.district.delete');
     });
 
+    // Slider Routes
+    Route::group(['prefix' => '/sliders'], function () {
+        Route::get('/', 'Backend\SlidersController@index')->name('admin.sliders');
+        Route::post('/store', 'Backend\SlidersController@store')->name('admin.slider.store');
+        Route::post('/slider/edit/{id}', 'Backend\SlidersController@update')->name('admin.slider.update');
+        Route::post('/slider/delete/{id}', 'Backend\SlidersController@delete')->name('admin.slider.delete');
+    });
+
+});
+
+// API routes
+Route::get('get-districts/{id}', function ($id) {
+    return json_encode(App\Models\District::where('division_id', $id)->get());
 });
 
 Auth::routes();

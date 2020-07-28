@@ -10,13 +10,15 @@
         </div>
         <div class="card-body">
             @include('backend.partials.messages')
-          <table class="table table-hover table-striped">
-            <tr>
+        <table class="table table-hover table-striped" id="dataTable">
+            <thead>
+                <tr>
               <th>#</th>
               <th>Division Name</th>
               <th>Division Priority</th>
               <th>Action</th>
             </tr>
+            </thead>
 
             @foreach ($divisions as $division)
               <tr>

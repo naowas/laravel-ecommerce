@@ -13,8 +13,9 @@
       <div class="card-body">
         @include('backend.partials.messages')
 
-          <table class="table table-striped table-hover">
-            <tr>
+        <table class="table table-hover table-striped" id="dataTable">
+            <thead>
+                <tr>
               <th>#</th>
               <th>Category Name</th>
               <th>Description</th>
@@ -23,22 +24,23 @@
               <th>Action</th>
             </tr>
 
+            </thead>
            @foreach ($categories as $category)
             <tr>
               <td>#</td>
               <td>{{$category->name}}</td>
               <td>{{$category->description}}</td>
-              <td>     
+              <td>
                 <img src="{!! asset('images/categories/'.$category->image) !!}" width="100">
               </td>
               <td>
                 @if ($category->parent_id==NULL)
                 Primary category
-               
-                    
+
+
                 @else {{$category->parent->name}}
-                    
-                    
+
+
                 @endif
               </td>
               <td>

@@ -13,9 +13,11 @@
       <div class="card-body">
         @include('backend.partials.messages')
 
-          <table class="table table-striped table-hover">
-            <tr>
+        <table class="table table-hover table-striped" id="dataTable">
+           <thead>
+                <tr>
               <th>#</th>
+              <th>Product Code</th>
               <th>Product title</th>
               <th>Price</th>
               <th>Image</th>
@@ -23,13 +25,15 @@
               {{-- <th>Description</th> --}}
               <th>Action</th>
             </tr>
+           </thead>
 
            @foreach ($products as $product)
             <tr>
               <td>#</td>
+             <td>#PID{{$product->id}}</td>
               <td>{{$product->title}}</td>
               <td>{{$product->price}}</td>
-              <td>     
+              <td>
                 <img src="{!! asset('images/products/'.$product->image) !!}" width="100">
               </td>
 

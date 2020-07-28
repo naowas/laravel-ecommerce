@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="{{asset('https://cdnjs.cloudflare.com/ajax/libs/ionicons/4.5.4/css/ionicons.min.css')}}">
     <link rel="stylesheet" href="{{asset('https://cdnjs.cloudflare.com/ajax/libs/typicons/2.0.5/typicons.css')}}">
     <link rel="stylesheet" href="{{asset('https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.2.0/css/flag-icon.min.css')}}">
+   <link rel="stylesheet" href="{{asset('css/admin/datatables.min.css')}}">
 
     <link rel="stylesheet" href="{{asset('css/admin/vendor.bundle.base.css')}}">
     <link rel="stylesheet" href="{{asset('css/admin/vendor.bundle.addons.css')}}">
@@ -38,6 +39,10 @@
     </div>
     <!-- container-scroller -->
     <!-- plugins:js -->
+
+
+
+
     <script src="{{asset('js/vendor.bundle.base.js')}}"></script>
     <script src="{{asset('js/vendor.bundle.addons.js')}}"></script>
     <!-- endinject -->
@@ -49,6 +54,13 @@
     <!-- endinject -->
     <!-- Custom js for this page-->
     <script src="{{asset('js/dashboard.js')}}"></script>
+    <script src="{{asset('js/datatables.min.js')}}"></script>
+
+     <script>
+         $(document).ready(function() {
+    $('#dataTable').DataTable();
+    } );
+     </script>
     <!-- End custom js for this page-->
   </body>
 </html>
