@@ -5,14 +5,17 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use App\Models\Slider;
+
 
 class PagesController extends Controller
 {
     public function index()
     {
-        $products = Product::orderBy('id', 'desc')->paginate(2);
+        $sliders = Slider::orderBy('priority', 'asc')->get();
+        $products = Product::orderBy('id', 'desc')->paginate(9);
+        return view('frontend.pages.index', compact('products', 'sliders'));
 
-        return view('frontend.pages.index', compact('products'));
     }
 
     public function contact()
