@@ -27,8 +27,8 @@ class CreateOrdersTable extends Migration
             $table->boolean('is_completed')->default(0);
             $table->boolean('is_seen_by_admin')->default(0);
             $table->string('transaction_id')->nullable();
-            $table->int('shipping_charge')->default(60);
-            $table->int('custom_discount')->nullable();
+            $table->integer('shipping_charge')->default(60);
+            $table->integer('custom_discount')->nullable();
             $table->timestamps();
 
             $table->foreign('user_id')
